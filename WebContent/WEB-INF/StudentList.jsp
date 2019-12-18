@@ -40,7 +40,7 @@ color :green;
 
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Isamm ClassRoom</a>
+  <a class="navbar-brand" href="#">Isamm </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,6 +57,10 @@ color :green;
       </li>
     </ul>
   </div>
+   <form class="form-inline" method="post" action="SearchEtudiant">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search by id" aria-label="Search" min="1" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </nav>
 
 
@@ -94,8 +98,8 @@ color :green;
     <p class="card-text">3 ing software engineering</p>
     <p class="green"> <c:if test="${asd.moy>=10}"><c:out value="${asd.moy}"/> </c:if> </p>
     <p class="red"> <c:if test="${asd.moy<10}"><c:out value="${asd.moy}"/> </c:if> </p>
-    <a href="#" class="btn btn-primary">Editt</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+    <input type="hidden" name="id" value="<c:out value="${asd.id}"/>"/>
+    <a href="/myfirstJEE/SuppressionEtudiant?id=<c:out value='${asd.id}'/>" class="btn btn-danger">Delete</a>
    </div>
   </div>
   

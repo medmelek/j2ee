@@ -15,7 +15,6 @@ version="3.0">
 </servlet-mapping>
 
 
-
 <servlet>
 <servlet-name>InsertionEtudiant</servlet-name>
 <servlet-class>com.melek.jee.servlet</servlet-class>
@@ -25,6 +24,25 @@ version="3.0">
 <url-pattern>/InsertionEtudiant</url-pattern>
 </servlet-mapping>
 
+
+<servlet>
+<servlet-name>SuppressionEtudiant</servlet-name>
+<servlet-class>com.melek.jee.servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>SuppressionEtudiant</servlet-name>
+<url-pattern>/SuppressionEtudiant</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+<servlet-name>SearchEtudiant</servlet-name>
+<servlet-class>com.melek.jee.servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>SearchEtudiant</servlet-name>
+<url-pattern>/SearchEtudiant</url-pattern>
+</servlet-mapping>
 
 
 </web-app>

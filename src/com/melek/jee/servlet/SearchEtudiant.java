@@ -1,53 +1,45 @@
 package com.melek.jee.servlet;
 
 import java.io.IOException;
-import com.melek.data.*;
-import com.melek.beans.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.melek.data.GestionEtudiants;
 
-@WebServlet("/InsertionEtudiant")
-public class InsertionEtudiant extends HttpServlet {
+
+@WebServlet("/SearchEtudiant")
+public class SearchEtudiant extends HttpServlet {
 	
+	private GestionEtudiants myLsitStudent = new GestionEtudiants();
+
 	private static final long serialVersionUID = 1L;
-	
-    private GestionEtudiants myLsitStudent = new GestionEtudiants();
-    
-    private Etudiant myEtudiant;
-   
-    public InsertionEtudiant() {
+
+    public SearchEtudiant() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		myEtudiant =  new Etudiant();
-		
-		this.myEtudiant.setNom(request.getParameter("nom"));
-		this.myEtudiant.setPrenom(request.getParameter("prenom"));
-		this.myEtudiant.setId(Integer.parseInt(request.getParameter("num")));
-		this.myEtudiant.setMoy(Double.parseDouble(request.getParameter("moy")));
-		
-		if(this.myLsitStudent.existNum(this.myEtudiant.getId())) {
-			request.setAttribute("list", this.myLsitStudent.getEtudiantList());
-			this.getServletContext().getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request,response);
-		}else{
-			this.myLsitStudent.insertStudent(this.myEtudiant);
-			request.setAttribute("list", this.myLsitStudent.getEtudiantList());
-			this.getServletContext().getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request,response);
-		}
-		
 
+		try {
+			request.setAttribute("list", this.myLsitStudent.searchStudent(Integer.parseInt(request.getParameter("search"))));
+			this.getServletContext().getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request,response);
+			
+		}catch (Exception e) {
+			request.setAttribute("list", this.myLsitStudent.getEtudiantList());
+			this.getServletContext().getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request,response);
+		
+		}
+			
+		
 	}
 
 }

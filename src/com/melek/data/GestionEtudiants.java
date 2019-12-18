@@ -45,18 +45,43 @@ public class GestionEtudiants {
 
 	
 	public void insertStudent (Etudiant e) {
+		if(!this.existNum(e.getId()))
 		this.etudiantList.add(e);
 	}
 	
 	
 	public boolean existNum (int num) {
-		for (Etudiant etudiant : etudiantList) {
-			if (etudiant.getId()==num) {
-				return false ;
+		for (int i=0; i<this.etudiantList.size(); i++) {
+			if (this.etudiantList.get(i).getId()==num) {
+				
+			   return true ;
 			}
 			
 		}
-		return true ;
+		return false ;
+	}
+	
+	public void deleteStudent(int num) {
+		
+		for (int i=0; i<this.etudiantList.size(); i++) {
+			if (this.etudiantList.get(i).getId()==num) {
+			   etudiantList.remove(i);
+			}
+			
+		}
+		
+	}
+	
+	
+	public List<Etudiant>  searchStudent (int num) {
+		List<Etudiant> myetudiantList = new ArrayList<Etudiant>();
+		for (int i=0; i<etudiantList.size();i++) {
+			if(etudiantList.get(i).getId()==num) {
+				myetudiantList.add(etudiantList.get(i));
+				break ;
+			}
+		}
+		return myetudiantList ;
 	}
 	
 	
