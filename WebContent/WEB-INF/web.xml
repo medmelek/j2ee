@@ -45,5 +45,26 @@ version="3.0">
 </servlet-mapping>
 
 
+
+<servlet>
+<servlet-name>IdentificationEtudiant</servlet-name>
+<servlet-class>com.melek.jee.servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>IdentificationEtudiant</servlet-name>
+<url-pattern>/IdentificationEtudiant</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet>
+<servlet-name>ValidateEtudantCourses</servlet-name>
+<servlet-class>com.melek.jee.servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ValidateEtudantCourses</servlet-name>
+<url-pattern>/ValidateEtudantCourses</url-pattern>
+</servlet-mapping>
+
 </web-app>
 </element>

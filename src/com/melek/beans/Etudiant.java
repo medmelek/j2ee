@@ -6,6 +6,7 @@ public class Etudiant {
 	private String prenom ;
 	private int id ;
 	private double moy ;
+	
 	public String getNom() {
 		return nom;
 	}
